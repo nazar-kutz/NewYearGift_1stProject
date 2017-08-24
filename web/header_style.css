@@ -1,0 +1,14 @@
+body {
+    background-color: darkred;
+}
+
+h1 {
+    font-family: "Gill Sans Ultra Bold Condensed", "Bernard MT Condensed", "Sylfaen";
+    color: white;
+    font-size: 52px;
+    /*text-align: center;*/
+}
+
+.com_modif {
+    font-size: 36px;
+}
