@@ -9,6 +9,20 @@ import java.util.List;
 public class NewYearGift {
     private List<Sweets> sweets = new ArrayList<Sweets>();
     private int weightInGrams = 0;
+    private static volatile NewYearGift instance;
+
+    public static NewYearGift getInstance() {
+        if(instance == null){
+            synchronized (NewYearGift.class){
+                if (instance == null){
+                    instance = new NewYearGift();
+                }
+            }
+        }
+        return instance;
+    }
+
+    private NewYearGift(){}
 
     public void addToGift(Sweets sweets){
         this.sweets.add(sweets);

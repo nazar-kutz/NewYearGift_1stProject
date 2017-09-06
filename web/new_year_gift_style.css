@@ -1,11 +1,12 @@
 body {
     font-family: "Sylfaen";
-    background-color: white;
+    background-color: darkgreen;
+    /*background-color: white;
     background-image: url(src/screenes/scr_6.PNG);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: bottom center;
-    background-size: cover;
+    background-size: cover;*/
 }
 
 .submit {

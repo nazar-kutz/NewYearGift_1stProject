@@ -1,5 +1,6 @@
 package controller;
 
+import model.entity.NewYearGift;
 import model.entity.sweets.Sweets;
 
 import javax.servlet.ServletException;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-import static model.entity.GiftConteiner.newYearGift;
 import static model.entity.GiftConteiner.searchResults;
 
 @WebServlet("/searching servlet")
@@ -27,6 +27,8 @@ public class FindServlet extends HttpServlet {
             throws ServletException, IOException {
         int min = Integer.parseInt(request.getParameter("min"));
         int max = Integer.parseInt(request.getParameter("max"));
+
+        NewYearGift newYearGift = NewYearGift.getInstance();
 
         searchResults = newYearGift.findSweetsWithSuchSugarWarehouse(min, max);
         request.getRequestDispatcher("foundSweets.jsp").forward(request, response);

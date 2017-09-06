@@ -1,9 +1,9 @@
 <%@ page import="model.entity.NewYearGift" %>
 <%@ page import="model.entity.sweets.Sweets" %>
 <%@ page import="model.entity.sweets.SweetsType" %>
-<%@ page import="static model.entity.GiftConteiner.newYearGift" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="static view.StrGlobalConstants.*" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 21.08.2017
@@ -13,23 +13,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Новорічний подарунок</title>
+    <title><%=NEW_YEAR_GIFT%></title>
     <link rel="stylesheet" type="text/css" href="new_year_gift_style.css">
+    <%NewYearGift newYearGift = NewYearGift.getInstance();%>
 </head>
 <body>
 <table cellpadding="10px" id="table1">
-    <caption>Панель управління</caption>
+    <caption><%=CONTROL_PANNEL%></caption>
     <tr>
         <form action="sort servlet">
             <td>
-                <label for="sortBy">Сортувати за: </label>
+                <label for="sortBy"><%=SORT_BY + COLSPAN_SPACE%></label>
             </td>
             <td>
                 <select size="1" name="sortBy" id="sortBy">
-                    <option value="type">Типом</option>
-                    <option value="name">Назвою</option>
-                    <option value="weight">Вагою</option>
-                    <option value="warehouse" selected>Вмістом цукру</option>
+                    <option value="type"><%=TYPE_SORT%></option>
+                    <option value="name"><%=NAME_SORT%></option>
+                    <option value="weight"><%=WEIGHT_SORT%></option>
+                    <option value="warehouse" selected><%=SUGAR_WAREHOUSE_SORT%></option>
                 </select>
             </td>
             <td>
@@ -42,7 +43,7 @@
     </tr>
     <tr>
         <td colspan="3">
-            Знайти цукерки зі вказаним рівнем цукру (у %):
+            <%=FIND_CANDIES_WITH_GIVEN_SUGAR_WAREHOUSE + COLSPAN_SPACE%>
         </td>
     </tr>
     <tr>
@@ -64,19 +65,19 @@
 
 <br><hr size="1" color="red" width="100%"><br>
 
+<%if (newYearGift.getSweets().size() > 0) {%>
 <table cellpadding="5px" id="table2">
-    <caption>Новорічний подарунок: </caption>
-    <%if (newYearGift.getSweets().size() > 0) {%>
+    <caption><%=NEW_YEAR_GIFT + COLSPAN_SPACE%></caption>
     <tr>
         <td colspan="4">
-            Вага подарунку: <%=newYearGift.getWeightInKilograms()%> кг (<%=newYearGift.getWeightInGrams()%> г)
+            <%=GIFT_WEIGHT + COLSPAN_SPACE%><%=newYearGift.getWeightInKilograms()%> <%=KG%> (<%=newYearGift.getWeightInGrams()%> г)
         </td>
     </tr>
     <tr id="trInfo">
-        <td>Назва</td>
-        <td>Тип</td>
-        <td>Вага, г</td>
-        <td>Цукор, %</td>
+        <td><%=NAME%></td>
+        <td><%=TYPE%></td>
+        <td><%=WEIGHT%>, <%=GRAMM%></td>
+        <td><%=SUGAR%>, <%=PERSENT%></td>
     </tr>
     <%for (Sweets sweets : newYearGift.getSweets()) {%>
     <tr>
@@ -93,8 +94,8 @@
             <%=sweets.getSugarWarehouseInPercent()%>
         </td>
     </tr>
-    <% }
-    } %>
+    <% } %>
 </table>
+<% } %>
 </body>
 </html>

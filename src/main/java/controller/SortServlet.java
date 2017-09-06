@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static model.entity.GiftConteiner.newYearGift;
-
 @WebServlet("/sort servlet")
 public class SortServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,13 +21,15 @@ public class SortServlet extends HttpServlet {
 
     public void doSort(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String sortBy = request.getParameter("sortBy");
-        if(sortBy.equals("type")){
+        NewYearGift newYearGift = NewYearGift.getInstance();
+
+        if("type".equals(sortBy)){
             newYearGift.sortByType();
-        } else if(sortBy.equals("name")){
+        } else if("name".equals(sortBy)){
             newYearGift.sortByName();
-        } else if(sortBy.equals("weight")){
+        } else if("weight".equals(sortBy)){
             newYearGift.sortByWeight();
-        } else if(sortBy.equals("warehouse")){
+        } else if("warehouse".equals(sortBy)){
             newYearGift.sortBySugarWarehouse();
         }
         request.getRequestDispatcher("/NewYearGiftSheet.jsp").forward(request, response);

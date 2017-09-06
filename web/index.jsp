@@ -1,4 +1,5 @@
-<%--
+<%@ page import="static view.StrGlobalConstants.CANDIES_CATALOQUE" %>
+<%@ page import="static view.StrGlobalConstants.CATALOQUE" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 21.08.2017
@@ -8,11 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Каталог цукерок</title>
+    <title><%=CANDIES_CATALOQUE%></title>
     <link rel="stylesheet" type="text/css" href="index_style.css">
 </head>
 <body>
-<h1 align="center">Каталог</h1>
+<h1 align="center"><%=CATALOQUE%></h1>
 <hr size="1" color="red" width="50%">
 <table cellpadding="10px" class="tableCatalogue" align="center">
     <tr>

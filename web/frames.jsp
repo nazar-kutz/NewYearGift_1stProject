@@ -1,4 +1,5 @@
-<%--
+<%@ page import="static view.StrGlobalConstants.NEW_YEAR_GIFT" %>
+<%@ page import="static view.StrGlobalConstants.YOUR_BROWSER_DOES_NOT_SHOW_FRAMES" %><%--
   Created by IntelliJ IDEA.
   User: HP
   Date: 22.08.2017
@@ -8,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <meta charset="UTF-8">
-    <title>Новорічний подарунок</title>
+    <title><%=NEW_YEAR_GIFT%></title>
 </head>
 <frameset rows="100, *" frameborder="0" noresize>
     <frame src="header.html" scrolling="no">
@@ -17,7 +18,7 @@
         <frame src="NewYearGiftSheet.jsp">
     </frameset>
     <noframes>
-        <p>Ваш браузер не відображає фрейми</p>
+        <p><%=YOUR_BROWSER_DOES_NOT_SHOW_FRAMES%></p>
     </noframes>
 </frameset>
 </html>

@@ -7,21 +7,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="static model.entity.GiftConteiner.searchResults" %>
+<%@ page import="static view.StrGlobalConstants.SEARCH_RESULTS" %>
+<%@ page import="static view.StrGlobalConstants.RETURN" %>
+<%@ page import="static view.StrGlobalConstants.COLSPAN_SPACE" %>
+<%@ page import="static view.StrGlobalConstants.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Результати пошуку</title>
+    <title><%=SEARCH_RESULTS%></title>
 </head>
 <body>
-<a href="NewYearGiftSheet.jsp">Повернутися</a>
-<h3>Результати пошуку: </h3>
+<a href="NewYearGiftSheet.jsp"><%=RETURN%></a>
+<h3><%=SEARCH_RESULTS + COLSPAN_SPACE%></h3>
 <%if (searchResults.size() > 0) { %>
 <table cellpadding="5px">
     <tr bgcolor="silver">
-        <td>Тип</td>
-        <td>Назва</td>
-        <td>Вага, г</td>
-        <td>Цукор, %</td>
+        <td><%=TYPE%></td>
+        <td><%=NAME%></td>
+        <td><%=WEIGHT%>, <%=GRAMM%></td>
+        <td><%=SUGAR%>, <%=PERSENT%></td>
     </tr>
     <%for (Sweets sweets : searchResults) {%>
     <tr>
@@ -42,7 +46,7 @@
 </table>
 <%
 } else {
-%>Нічого не знайдено
+%><%=FOUND_NOTHING%>
 <% } %>
 </body>
 </html>
